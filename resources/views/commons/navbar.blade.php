@@ -5,14 +5,20 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                @if (Auth::check())
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Car</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Bike</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Users list</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">User page</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Cool</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Logout</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Signup</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Login</a></li>
+                {{-- ログアウトへのリンク --}}
+                <li class="nav-item">{!! link_to_route('logout.get', 'Logout', [], ['class' => 'nav-link js-scroll-trigger']) !!}</li>
+                @else
+                {{-- ユーザ登録ページへのリンク --}}
+                <li class="nav-item">{!! link_to_route('signup.get', 'Signup', [], ['class' => 'nav-link js-scroll-trigger']) !!}</li>
+                {{-- ログインページへのリンク --}}
+                <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link js-scroll-trigger']) !!}</li>
+                @endif
             </ul>
         </div>
     </div>

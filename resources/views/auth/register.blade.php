@@ -22,18 +22,32 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">I love car & I love bike</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">クルマが好きだ<br>バイクが好きだ<br>自慢の愛車を投稿しよう</p>
-                        {{-- ユーザ登録ページへのリンク --}}
-                        {!! link_to_route('signup.get', 'ユーザー登録', [], ['class' => 'btn btn-primary btn-xl js-scroll-trigger']) !!}
-                        {{-- ログインページへのリンク --}}
-                        {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-primary btn-xl js-scroll-trigger']) !!}
-                    </div>
+                <div class="card card-container">
+                    {{-- エラーメッセージ --}}
+                    @include('commons.error_messages')
+                    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                    <p class="profile-name-card"></p>
+                    {!! Form::open(['route' => 'signup.post']) !!}
+                    <form class="form-signin">
+                    	<div class="form-group">
+                    	{!! Form::label('name', '名前') !!}
+                        {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                        {!! Form::label('email', 'メールアドレス') !!}
+                        {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                        {!! Form::label('password', 'パスワード') !!}
+                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                        {!! Form::label('password_confirmation', 'パスワード再入力') !!}
+                        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+                        </div>
+                        {!! Form::submit('ユーザー登録', ['class' => 'btn btn-lg btn-primary btn-block btn-signin']) !!}
+                        {!! Form::close() !!}
+                    </form>
                 </div>
             </div>
         </header>
