@@ -19,33 +19,22 @@
     <body>
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
-            <div class="container h-100">
-                <div class="card card-container">
-                    {{-- エラーメッセージ --}}
-                    @include('commons.error_messages')
-                    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                    <p class="profile-name-card"></p>
-                    {!! Form::open(['route' => 'signup.post']) !!}
-                    <form class="form-signin">
-                    	<div class="form-group">
-                    	{!! Form::label('name', '名前') !!}
-                        {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                        {!! Form::label('email', 'メールアドレス') !!}
-                        {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                        {!! Form::label('password', 'パスワード(8文字以上）') !!}
-                        {!! Form::password('password', ['class' => 'form-control']) !!}
-                        </div>
-                        <div class="form-group">
-                        {!! Form::label('password_confirmation', 'パスワード再入力') !!}
-                        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-                        </div>
-                        {!! Form::submit('ユーザー登録', ['class' => 'btn btn-lg btn-primary btn-block btn-signin']) !!}
-                        {!! Form::close() !!}
-                    </form>
+            <div class="album">
+                <div class="container h-100">
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                        @if (count($users) > 0)
+                            <div class="col">
+                                @foreach ($users as $user)
+                                    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                                    <div class="name">
+                                    {{ link_to_route('layouts.index', $user->name) }}
+                                    </div>
+                                @endforeach
+                            </div>
+                            {{-- ページネーションのリンク --}}
+                            {{ $users->links() }}
+                        @endif
+                    </div>
                 </div>
             </div>
          <!--Footer-->

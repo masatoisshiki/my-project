@@ -16,11 +16,12 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('css/styles.css')}}" rel="stylesheet" />
     </head>
-    <body id="page-top">
+    <body>
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
-        <!-- Masthead-->
-        <header class="masthead">
+            @if (Auth::check())
+            @include('commons.toppage')
+            @else
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
@@ -36,11 +37,11 @@
                     </div>
                 </div>
             </div>
-        </header>
+            @endif
          <!--Footer-->
-        <footer class="bg-light py-2">
-            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
-        </footer>
+        <!--<footer class="bg-light py-2">-->
+        <!--    <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>-->
+        <!--</footer>-->
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
