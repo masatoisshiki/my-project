@@ -9,7 +9,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Car</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Bike</a></li>
                 <li class="nav-item">{!! link_to_route('layouts.index', 'Users list', [], ['class' => 'nav-link js-scroll-trigger']) !!}</li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">User page</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ url('layouts/'.$user->id) }}">User page</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Cool</a></li>
                 {{-- ログアウトへのリンク --}}
                 <li class="nav-item">{!! link_to_route('logout.get', 'Logout', [], ['class' => 'nav-link js-scroll-trigger']) !!}</li>

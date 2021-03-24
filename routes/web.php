@@ -26,3 +26,11 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('layouts', 'UsersController', ['only' => ['index', 'show', 'edit', 'update', 'destroy']]);
 });
+// 新規投稿ページ
+Route::get('/post', 'PostsController@post')->name('post');
+
+// 新規投稿確認ページ
+Route::post('/confirm', 'PostsController@confirm')->name('confirm');
+
+// 新規投稿完了ページ
+Route::post('/complete', 'PostsController@complete')->name('complete');

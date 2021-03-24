@@ -71,8 +71,8 @@
     }
     
     .profile-img-card {
-        width: 96px;
-        height: 96px;
+        width: 200px;
+        height: 200px;
         margin: 0 auto 10px;
         display: block;
         -moz-border-radius: 50%;
@@ -9778,19 +9778,10 @@ hr.light {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.p-profile-link {
-    display: block;
-    background-color: #F2E2CE;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    border: 1px solid #BFBFBF;
-    -webkit-transition: 400ms;
-    transition: 400ms;
+.profile-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 30px;
 }
-
-.p-profile-textWrapper {
-    padding: 10px 0 0 10px;
-    -webkit-box-flex: 1;
-    flex: 1;

@@ -18,39 +18,44 @@
     <body>
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
-            <div class="container h-100">
-                <div class="card card-container">
-                    {{-- エラーメッセージ --}}
-                    @include('commons.error_messages')
-                    <img class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                    <p class="profile-name-card"></p>
-                    {!! Form::open(['route' => 'signup.post']) !!}
-                    <form class="form-signin">
-                    	<div class="form-group">
-                    	{!! Form::label('name', '名前') !!}
-                        {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+        <div class="container h-100">
+            <div class="py-5 bg-light col-12">
+                <h2 class="text-center mt-2 mb-5">新規投稿 - 確認画面</h2>
+                <div class="container mb-5">
+                    {{ Form::open(['route' => 'complete', 'method' => 'POST']) }}
+                        @csrf
+                        <div class="form-group row">
+                            <p class="col-sm-4 col-form-label">カテゴリー</p>
+                            <div class="col-sm-8">
+                                {{ $kind }}
+                            </div>
+                            <input type="hidden" name="kind" value="{{ $kind }}">
                         </div>
-                        <div class="form-group">
-                        {!! Form::label('email', 'メールアドレス') !!}
-                        {!! Form::email('email', old('email'), ['class' => 'form-control']) !!}
+                        
+                        <div class="form-group row">
+                            <p class="col-sm-4 col-form-label">画像</p>
+                            <div class="col-sm-8">
+                                <img src="{{ $file_name }}" alt="">
+                            </div>
+                            <input type="hidden" name="file_name" value="{{ $newImageName }}">
                         </div>
-                        <div class="form-group">
-                        {!! Form::label('password', 'パスワード(8文字以上）') !!}
-                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                        
+                        <div class="form-group row">
+                            <p class="col-sm-4 col-form-label">コメント</p>
+                            <div class="col-sm-8">
+                                {{ $post_content }}
+                            </div>
+                            <input type="hidden" name="post_content" value="{{ $post_content }}">
                         </div>
-                        <div class="form-group">
-                        {!! Form::label('password_confirmation', 'パスワード再入力') !!}
-                        {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+            
+                        <div class="text-center">
+                            {{ Form::submit('登録', ['class' => 'btn btn-primary']) }}
                         </div>
-                        {!! Form::submit('ユーザー登録', ['class' => 'btn btn-lg btn-primary btn-block btn-signin']) !!}
-                        {!! Form::close() !!}
-                    </form>
+                    {{ Form::close() }}
                 </div>
             </div>
-         <!--Footer-->
-        <!--<footer class="bg-light py-2">-->
-        <!--    <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>-->
-        <!--</footer>-->
+        </div>   
+        
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

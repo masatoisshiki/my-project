@@ -18,25 +18,16 @@
     <body>
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')
-            @if (Auth::check())
-            @include('commons.toppage')
-            @else
-            <div class="container h-100">
-                <div class="row h-100 align-items-center justify-content-center text-center">
-                    <div class="col-lg-10 align-self-end">
-                        <h1 class="text-uppercase text-white font-weight-bold">I love car & I love bike</h1>
-                        <hr class="divider my-4" />
-                    </div>
-                    <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">クルマが好きだ<br>バイクが好きだ<br>自慢の愛車を投稿しよう</p>
-                        {{-- ユーザ登録ページへのリンク --}}
-                        {!! link_to_route('signup.get', 'ユーザー登録', [], ['class' => 'btn btn-primary btn-xl js-scroll-trigger']) !!}
-                        {{-- ログインページへのリンク --}}
-                        {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-primary btn-xl js-scroll-trigger']) !!}
-                    </div>
+        <div class="container h-100">
+            <div class="py-5 bg-light col-12">
+                <h2 class="text-center mt-2 mb-5">新規投稿 - 完了</h2>
+                <div class="text-center">
+                    <p>投稿を登録しました！</p>
+                    <a href="{{--{{ route('show') }}--}}">マイページへ戻る</a></div>
                 </div>
             </div>
-            @endif
+        </div>   
+        
         <!-- Bootstrap core JS-->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>

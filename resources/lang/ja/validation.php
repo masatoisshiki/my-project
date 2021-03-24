@@ -38,6 +38,7 @@ return [
     'filled'               => ':attributeは必須です。',
     'exists'               => '選択された:attributeは正しくありません。',
     'image'                => ':attributeは画像にしてください。',
+    'file_name'            => ':attributeは画像(jpg、png、bmp、gif、svg、webp)をアップロードしてください。',
     'in'                   => '選択された:attributeは正しくありません。',
     'integer'              => ':attributeは整数にしてください。',
     'ip'                   => ':attributeを正しいIPアドレスにしてください。',
@@ -108,6 +109,8 @@ return [
         'name'=>'名前',
         'email'=>'メールアドレス',
         'password'=>'パスワード',
+        'kind' => 'カテゴリー',
+        'file_name' => '画像',
     ],
 
 ];
